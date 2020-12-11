@@ -39,43 +39,39 @@ export function getTimeframe(timeWindow) {
 
 export function getPoolLink(token0Address, token1Address = null, remove = false) {
   if (!token1Address) {
-    return (
-      `https://uniswap.exchange/` +
-      (remove ? `remove` : `add`) +
-      `/${token0Address === '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2' ? 'ETH' : token0Address}/${'ETH'}`
-    )
+    return `https://app.celswap.org/#/add/CEL/`
   } else {
-    return (
-      `https://uniswap.exchange/` +
-      (remove ? `remove` : `add`) +
-      `/${token0Address === '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2' ? 'ETH' : token0Address}/${
-        token1Address === '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2' ? 'ETH' : token1Address
-      }`
-    )
+    return `https://app.celswap.org/#/add/CEL/${
+      token1Address === '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2' ? 'ETH' : token1Address
+    }`
   }
 }
 
 export function getSwapLink(token0Address, token1Address = null) {
   if (!token1Address) {
-    return `https://uniswap.exchange/swap?inputCurrency=${token0Address}`
+    token0Address === `0xaaaebe6fe48e54f431b0c390cfaf0b017d09d42d` && (token0Address = `CEL`)
+    token0Address === `0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2` && (token0Address = `ETH`)
+    return `https://app.celswap.org/#/swap?inputCurrency=${token0Address}`
   } else {
-    return `https://uniswap.exchange/swap?inputCurrency=${
-      token0Address === '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2' ? 'ETH' : token0Address
-    }&outputCurrency=${token1Address === '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2' ? 'ETH' : token1Address}`
+    token0Address === `0xaaaebe6fe48e54f431b0c390cfaf0b017d09d42d` && (token0Address = `CEL`)
+    token0Address === `0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2` && (token0Address = `ETH`)
+    token1Address === `0xaaaebe6fe48e54f431b0c390cfaf0b017d09d42d` && (token1Address = `CEL`)
+    token1Address === `0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2` && (token1Address = `ETH`)
+    return `https://app.celswap.org/#/swap?inputCurrency=${token0Address}&outputCurrency=${token1Address}`
   }
 }
 
 export function getMiningPoolLink(token0Address) {
-  return `https://app.uniswap.org/#/uni/ETH/${token0Address}`
+  return `https://app.celswap.org/#/CEL/ETH/${token0Address}`
 }
 
-export function getUniswapAppLink(linkVariable) {
-  let baseUniswapUrl = 'https://app.uniswap.org/#/uni'
+export function getCelswapAppLink(linkVariable) {
+  let baseCelswapUrl = 'https://app.celswap.org/#/swap'
   if (!linkVariable) {
-    return baseUniswapUrl
+    return baseCelswapUrl
   }
 
-  return `${baseUniswapUrl}/ETH/${linkVariable}`
+  return `${baseCelswapUrl}/ETH/${linkVariable}`
 }
 
 export function localNumber(val) {

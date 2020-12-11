@@ -166,11 +166,11 @@ function PositionList({ positions }) {
               >
                 <ButtonLight style={{ padding: '4px 6px', borderRadius: '4px' }}>Add</ButtonLight>
               </Link>
-              {poolOwnership > 0 && (
+              {/* {poolOwnership > 0 && (
                 <Link external href={getPoolLink(position.pair.token0.id, position.pair.token1.id, true)}>
                   <ButtonLight style={{ padding: '4px 6px', borderRadius: '4px' }}>Remove</ButtonLight>
                 </Link>
-              )}
+              )} */}
             </RowFixed>
           </AutoColumn>
         </DataText>
